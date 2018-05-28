@@ -1,3 +1,10 @@
+SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 800
+
+SCREEN_SIZE = (SCREEN_WIDTH,SCREEN_HEIGHT)
+
+ORIGINAL_CAPTION = "Super Mario Bros 1-1"
+
 # COLORS #
 #               R    G    B
 GRAY         = (100, 100, 100)
@@ -34,3 +41,11 @@ COIN = 'coin'
 LIFE_MUSHROOM = '1up_mushroom'
 
 FIREBALL = 'fireball'
+
+#BRICK STATES
+
+RESTING = 'resting'
+BUMPED = 'bumped'
+
+#COIN STATES
+OPENED = 'opened'
