@@ -1,8 +1,7 @@
 import arcade
-
 class Bullet:
     def __init__(self, x, y):
-        self.sprite = arcade.Sprite("assets/bullet.png")
+        self.sprite = arcade.Sprite("Graphics/mario_f_1.png")
         self.sprite.center_x = x
         self.sprite.center_y = y
 
@@ -18,7 +17,7 @@ class Demo(arcade.Window):
     def __init__(self):
         super().__init__(640,480,"Arcade Game")
         arcade.set_background_color((0,0,0))
-        self.spaceship = arcade.Sprite("assets/spaceship.png")
+        self.spaceship = arcade.Sprite("Graphics/mario_f_1.png")
         self.bullet = Bullet(320,0)
         self.bullet2 = Bullet(380,140)
 

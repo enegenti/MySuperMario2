@@ -1,32 +1,58 @@
 import arcade
+from player import *
 
 
 class Game(arcade.Window):
     def __init__(self):
-        super().__init__(640,480,"Arcade Game")
+        super().__init__(800,600,"Arcade Game")
         arcade.set_background_color((0,0,0))
-        self.spaceship = arcade.Sprite("assets/spaceship.png")
-        self.bullet = Bullet(320,0)
-        self.bullet2 = Bullet(380,140)
-
+        self.mario = Player(300,300)
         self.vx = 0
         self.vy = 0
-        self.playerx = 100
-        self.playery = 240
-        self.score = 0
+
+        self.all_sprites_list = None
+
+    def setup(self):
+        # Sprite lists
+        self.all_sprites_list = arcade.SpriteList()
+
+        # Set up the player
+        self.vx = 0
+        self.vy = 0
+        self.all_sprites_list.append(self.player_sprite)
+
 
     def on_draw(self):
         arcade.start_render()
+        self.all_sprites_list.draw()
 
-        self.bullet.draw()
-        self.bullet2.draw()
-        self.spaceship.draw()
+        self.mario.draw()
 
-        arcade.draw_text("Score: " + str(self.score), 400, 400, (255,255,255), 40)
+    def update(self, dt):
+        self.all_sprites_list.update()
+
+    def on_key_press(self, key, modifier):
+        if key == arcade.key.UP:
+            self.vy = 1
+        if key == arcade.key.DOWN:
+            self.vy = -1
+        if key == arcade.key.LEFT:
+            self.vx = -1
+        if key == arcade.key.RIGHT:
+            self.vx = 1
+
+    def on_key_release(self, key, modifier):
+        if key == arcade.key.UP:
+            self.vy = 0
+        if key == arcade.key.DOWN:
+            self.vy = 0
+        if key == arcade.key.LEFT:
+            self.vx = 0
+        if key == arcade.key.RIGHT:
+            self.vx = 0
 
 
 
-
-window = Demo()
+Window = Game()
 arcade.run()
 
