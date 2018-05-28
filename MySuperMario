@@ -1,0 +1,32 @@
+import arcade
+
+
+class Game(arcade.Window):
+    def __init__(self):
+        super().__init__(640,480,"Arcade Game")
+        arcade.set_background_color((0,0,0))
+        self.spaceship = arcade.Sprite("assets/spaceship.png")
+        self.bullet = Bullet(320,0)
+        self.bullet2 = Bullet(380,140)
+
+        self.vx = 0
+        self.vy = 0
+        self.playerx = 100
+        self.playery = 240
+        self.score = 0
+
+    def on_draw(self):
+        arcade.start_render()
+
+        self.bullet.draw()
+        self.bullet2.draw()
+        self.spaceship.draw()
+
+        arcade.draw_text("Score: " + str(self.score), 400, 400, (255,255,255), 40)
+
+
+
+
+window = Demo()
+arcade.run()
+
